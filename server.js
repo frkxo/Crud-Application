@@ -2,10 +2,19 @@ const e = require('express');
 const express = require('express');
 const mongoose = require('mongoose');
 const Book = require('./book');
+const Joi = require('joi');
 
 const app = express();
 app.use(express.json());
 const port = 3000;
+
+function validateBook (book) {
+    const schema = Joi.object({
+        title: Joi.string().min(3).required(),
+        author: Joi.string().min(3).required()
+    });
+    return schema.validateBook(book);
+}
 
 // My MongoDB string mongodb://127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+2.2.5
 mongoose.connect('mongodb://127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+2.2.5', {useNewUrlParser: true, useUnifiedTopology: true})
