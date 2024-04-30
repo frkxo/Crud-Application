@@ -33,6 +33,11 @@ app.listen(port, () => {
 // let books = [];
 
 app.post('/books', async (req, res) => {
+    const { error } = validateBook(req.body);
+    if (error) {
+        return res.status(400).send(error.details[0].message);
+    }
+    
     try {
         let book = new Book ({title: req.body.title, author: req.body.author});
         book = await book.save();
