@@ -37,7 +37,7 @@ app.post('/books', async (req, res) => {
     if (error) {
         return res.status(400).send(error.details[0].message);
     }
-    
+
     try {
         let book = new Book ({title: req.body.title, author: req.body.author});
         book = await book.save();
@@ -68,6 +68,11 @@ app.get('/books/:id', async (req, res) => {
 
 // UPDATE A BOOK 
 app.put('/books/:id', async (req, res) => {
+    const { error } = validateBook(req.body);
+    if (error) {
+        return res.send(400).send(error.details[0].message);
+    }
+
     try {
         const book = await Book.findByIdAndUpdate(req.params.id, {title: req.body.title, author: req.body.author}, {new: true});
         if (!book) {
