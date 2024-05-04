@@ -21,3 +21,9 @@ This project aims to help me learn the following:
 
 - REST API basics
 - JavaScript programming concepts
+
+## TODO
+
+- [ ] Add more features
+- [ ] Add more security
+- [ ] Deploy to Heroku
