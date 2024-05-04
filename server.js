@@ -96,3 +96,5 @@ app.delete('/books/:id', async (req, res) => {
         res.status(500).send('Something went worng!');
     }
 });
+
+module.exports = app;

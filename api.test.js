@@ -8,6 +8,3 @@ describe('GET /books', () => {
     expect(res.body).toBeInstanceOf(Array);
   });
 });
-
-
-// TODO: Handle app.address() error
