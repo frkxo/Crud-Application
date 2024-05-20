@@ -22,7 +22,7 @@ This project aims to help me learn the following:
 - REST API basics
 - JavaScript programming concepts
 
-## Remaining tasks
+## TODO
 
 - [ ] Add more features
 - [ ] Add more security
